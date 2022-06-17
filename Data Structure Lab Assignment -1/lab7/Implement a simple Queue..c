@@ -1,62 +1,83 @@
-#include<stdio.h>
-int n, a[50];
-int main()
+#include <stdio.h>
+ 
+#define MAX 50
+ 
+void insert();
+void delete();
+void display();
+int queue_array[MAX];
+int rear = - 1;
+int front = - 1;
+main()
 {
-    while(1){
-    int ch;
-    printf("1.Create queue\n2.pop\n3.push\n4.display");
-    printf("\n\nEnter choice: ");
-    scanf("%d",&ch);
-    switch(ch)
+    int choice;
+    while (1)
     {
-        case 1: create();
-        break;
-        case 2: pop();
-        break;
-        case 3: push();
-        break;
-        case 4: display();
-    }
-    }
-}
-void create()
+        printf("1.Insert element to queue \n");
+        printf("2.Delete element from queue \n");
+        printf("3.Display all elements of queue \n");
+        printf("4.Quit \n");
+        printf("Enter your choice : ");
+        scanf("%d", &choice);
+        switch (choice)
+        {
+            case 1:
+            insert();
+            break;
+            case 2:
+            delete();
+            break;
+            case 3:
+            display();
+            break;
+            case 4:
+            exit(1);
+            default:
+            printf("Wrong choice \n");
+        } /* End of switch */
+    } /* End of while */
+} /* End of main() */
+void insert()
 {
-    int i;
-    printf("\nEnter the size of the queue: ");
-    scanf("%d",&n);
-    printf("\nEnter %d elements: ", n);
-    for(i=0;i<n;i++)
+    int add_item;
+    if (rear == MAX - 1)
+    printf("Queue Overflow \n");
+    else
     {
-        scanf("%d",&a[i]);
+        if (front == - 1)
+        /*If queue is initially empty */
+        front = 0;
+        printf("Inset the element in queue : ");
+        scanf("%d", &add_item);
+        rear = rear + 1;
+        queue_array[rear] = add_item;
     }
-    display();
-}
-void pop()
+} 
+ 
+void delete()
 {
-    int pos=1;
-    while(pos<n){
-        a[pos-1]=a[pos];
-        pos++;
+    if (front == - 1 || front > rear)
+    {
+        printf("Queue Underflow \n");
+        return ;
     }
-    n-=1;
-    display();
-}
-void push()
-{
-    int elem, pos=n;
-    n++;
-    printf("\nEnter an element to enter in queue: ");
-    scanf("%d",&elem);
-    a[pos]=elem;
-    display();
-}
+    else
+    {
+        printf("Element deleted from queue is : %d\n", queue_array[front]);
+        front = front + 1;
+    }
+} /* End of delete() */
+ 
 void display()
 {
     int i;
-    printf("\nThe queue is:\n");
-    for(i=0;i<n;i++)
+    if (front == - 1)
+        printf("Queue is empty \n");
+    else
     {
-        printf("%d\t",a[i]);
+        printf("Queue is : \n");
+        for (i = front; i <= rear; i++)
+            printf("%d ", queue_array[i]);
+        printf("\n");
     }
-    printf("\n\n-------*******------\n\n");
 }
