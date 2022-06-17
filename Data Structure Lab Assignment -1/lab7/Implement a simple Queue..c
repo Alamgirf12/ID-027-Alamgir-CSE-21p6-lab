@@ -34,9 +34,9 @@ main()
             exit(1);
             default:
             printf("Wrong choice \n");
-        } /* End of switch */
-    } /* End of while */
-} /* End of main() */
+        } 
+    } 
+} 
 void insert()
 {
     int add_item;
@@ -45,7 +45,6 @@ void insert()
     else
     {
         if (front == - 1)
-        /*If queue is initially empty */
         front = 0;
         printf("Inset the element in queue : ");
         scanf("%d", &add_item);
@@ -66,7 +65,7 @@ void delete()
         printf("Element deleted from queue is : %d\n", queue_array[front]);
         front = front + 1;
     }
-} /* End of delete() */
+} 
  
 void display()
 {
