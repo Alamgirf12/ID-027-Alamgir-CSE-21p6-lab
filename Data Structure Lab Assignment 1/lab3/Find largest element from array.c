@@ -1,18 +1,27 @@
 #include<stdio.h>
 int main()
 {
-
-    int arr[]={14,3,60,4,32,15};
-    int max=arr[0];
-    int i,  loc=1;
-    printf("Given array is: \n");
-
-    for(i=0;i<6;i++)
+    int n;
+    printf("Enter the size of the array  ");
+    scanf("%d",&n);
+    int arr[n];
+    printf("\n\nEnter %d elements ", n);
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    printf("\n\nThe array is \n");
+    for(int i=0;i<n;i++)
     {
         printf("%d\t",arr[i]);
     }
     printf("\n");
-    for (i=0;i<6;i++)
+
+    int max=arr[0];
+    int i,  loc=1;
+
+
+    for (i=0;i<n;i++)
     {
         if(arr[i]>max)
         {

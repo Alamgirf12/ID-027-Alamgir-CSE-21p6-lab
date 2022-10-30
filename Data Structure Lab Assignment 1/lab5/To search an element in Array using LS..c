@@ -2,7 +2,6 @@
 void main()
 
 {  int num;
-
     int i,searchNumber, found = 0;
     printf("Enter the number of elements ");
     scanf("%d", &num);

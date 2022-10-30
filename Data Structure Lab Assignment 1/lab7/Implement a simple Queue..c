@@ -1,7 +1,6 @@
 #include <stdio.h>
- 
 #define MAX 50
- 
+
 void insert();
 void delete();
 void display();
@@ -34,16 +33,16 @@ main()
             exit(1);
             default:
             printf("Wrong choice \n");
-        } 
-    } 
-} 
+        }
+    }
+}
 void insert()
 {
     int add_item;
     if (rear == MAX - 1)
     printf("Queue Overflow \n");
     else
-    {
+        {
         if (front == - 1)
         front = 0;
         printf("Inset the element in queue : ");
@@ -51,8 +50,8 @@ void insert()
         rear = rear + 1;
         queue_array[rear] = add_item;
     }
-} 
- 
+}
+
 void delete()
 {
     if (front == - 1 || front > rear)
@@ -65,8 +64,8 @@ void delete()
         printf("Element deleted from queue is : %d\n", queue_array[front]);
         front = front + 1;
     }
-} 
- 
+}
+
 void display()
 {
     int i;

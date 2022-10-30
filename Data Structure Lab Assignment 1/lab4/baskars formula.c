@@ -8,11 +8,9 @@ int main() {
     scanf("%lf", &b);
     printf("\nInput the third number(c): ");
     scanf("%lf", &c);
-
 	pr1 = (b*b) - (4*(a)*(c));
 
     if(pr1 > 0 && a != 0) {
-
 		pr1 = sqrt(pr1);
 		x = (-b + pr1)/(2*a);
 		y = (-b - pr1)/(2*a);
